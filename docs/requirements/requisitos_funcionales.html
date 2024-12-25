@@ -1,0 +1,670 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>requisitos_funcionales</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="requisitos-funcionales-del-proyecto-chatbot-de-análisis-de-currículums">Requisitos Funcionales del Proyecto: Chatbot de Análisis de Currículums</h1>
+<h2 id="introducción">Introducción</h2>
+<p>Este documento detalla los requisitos funcionales del sistema “Chatbot de Análisis de Currículums”. Para cada funcionalidad, se especifican los actores involucrados, una breve descripción y los atributos necesarios con sus características.</p>
+<hr>
+<h2 id="requisitos-funcionales">Requisitos Funcionales</h2>
+<h3 id="rf-01-registro-de-candidatos"><strong>RF-01: Registro de Candidatos</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Candidato.</li>
+<li><strong>Descripción:</strong> Permitir que los candidatos se registren en la plataforma proporcionando sus datos personales básicos.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_candidato</td>
+<td>Entero</td>
+<td>Identificador único del candidato</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>nombre</td>
+<td>Texto</td>
+<td>Nombre completo del candidato</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Email</td>
+<td>Dirección de correo electrónico del candidato</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>contraseña</td>
+<td>Texto</td>
+<td>Contraseña para acceder al sistema</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>fecha_registro</td>
+<td>Fecha</td>
+<td>Fecha de registro en la plataforma</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-02-subir-curriculum-vitae-cv"><strong>RF-02: Subir Curriculum Vitae (CV)</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Candidato.</li>
+<li><strong>Descripción:</strong> Permitir al candidato subir su CV en formatos soportados (PDF, DOCX, TXT).</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>archivo_cv</td>
+<td>Archivo</td>
+<td>CV en formato PDF, DOCX o TXT</td>
+<td>Sí</td>
+<td>.pdf, .docx, .txt</td>
+</tr>
+<tr>
+<td>id_candidato</td>
+<td>Entero</td>
+<td>Identificador único del candidato</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>fecha_subida</td>
+<td>Fecha</td>
+<td>Fecha en que el CV fue subido</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-03-validación-de-datos-extraídos"><strong>RF-03: Validación de Datos Extraídos</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Candidato.</li>
+<li><strong>Descripción:</strong> Permitir al candidato revisar, editar y confirmar los datos extraídos de su CV.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_candidato</td>
+<td>Entero</td>
+<td>Identificador único del candidato</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>datos_extraidos</td>
+<td>JSON</td>
+<td>Datos extraídos automáticamente del CV</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>confirmacion_candidato</td>
+<td>Booleano</td>
+<td>Estado de confirmación de los datos</td>
+<td>Sí</td>
+<td>true, false</td>
+</tr>
+<tr>
+<td>fecha_confirmacion</td>
+<td>Fecha</td>
+<td>Fecha en que se confirmó el CV</td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-04-consultar-base-de-datos-de-candidatos"><strong>RF-04: Consultar Base de Datos de Candidatos</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Reclutador.</li>
+<li><strong>Descripción:</strong> Permitir al reclutador buscar candidatos según criterios específicos.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>criterios_busqueda</td>
+<td>JSON</td>
+<td>Parámetros de búsqueda (ej. experiencia, habilidades)</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>resultados</td>
+<td>Lista</td>
+<td>Lista de candidatos que cumplen los criterios</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>id_reclutador</td>
+<td>Entero</td>
+<td>Identificador único del reclutador</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-05-generar-informe-de-candidatos"><strong>RF-05: Generar Informe de Candidatos</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Reclutador.</li>
+<li><strong>Descripción:</strong> Permitir al reclutador generar un informe en PDF con los datos de los candidatos seleccionados.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_reclutador</td>
+<td>Entero</td>
+<td>Identificador único del reclutador</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>candidatos</td>
+<td>Lista</td>
+<td>Lista de IDs de candidatos seleccionados</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>informe_pdf</td>
+<td>Archivo</td>
+<td>Informe generado en formato PDF</td>
+<td>Sí</td>
+<td>.pdf</td>
+</tr>
+<tr>
+<td>fecha_generacion</td>
+<td>Fecha</td>
+<td>Fecha en que se generó el informe</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-06-registro-de-reclutadores"><strong>RF-06: Registro de Reclutadores</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Administrador.</li>
+<li><strong>Descripción:</strong> Permitir el registro y validación de reclutadores en la plataforma.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_reclutador</td>
+<td>Entero</td>
+<td>Identificador único del reclutador</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>nombre_empresa</td>
+<td>Texto</td>
+<td>Nombre de la empresa asociada al reclutador</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>estado_validado</td>
+<td>Booleano</td>
+<td>Estado de validación del reclutador</td>
+<td>Sí</td>
+<td>true, false</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-07-publicar-ofertas-de-trabajo"><strong>RF-07: Publicar Ofertas de Trabajo</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Reclutador.</li>
+<li><strong>Descripción:</strong> Permitir al reclutador publicar ofertas de trabajo vinculadas a habilidades específicas.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_oferta</td>
+<td>Entero</td>
+<td>Identificador único de la oferta</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>habilidades</td>
+<td>Lista</td>
+<td>Lista de habilidades requeridas</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>descripcion_puesto</td>
+<td>Texto</td>
+<td>Descripción del puesto de trabajo</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>fecha_publicacion</td>
+<td>Fecha</td>
+<td>Fecha en que se publicó la oferta</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-08-inscripción-a-ofertas-de-trabajo"><strong>RF-08: Inscripción a Ofertas de Trabajo</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Candidato.</li>
+<li><strong>Descripción:</strong> Permitir al candidato inscribirse a ofertas de trabajo disponibles.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_inscripcion</td>
+<td>Entero</td>
+<td>Identificador único de la inscripción</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>id_candidato</td>
+<td>Entero</td>
+<td>Identificador único del candidato</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>id_oferta</td>
+<td>Entero</td>
+<td>Identificador único de la oferta</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>fecha_inscripcion</td>
+<td>Fecha</td>
+<td>Fecha en que se realizó la inscripción</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-09-consultar-inscripciones-realizadas"><strong>RF-09: Consultar Inscripciones Realizadas</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Candidato.</li>
+<li><strong>Descripción:</strong> Permitir al candidato consultar las ofertas a las que se ha inscrito.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_candidato</td>
+<td>Entero</td>
+<td>Identificador único del candidato</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>inscripciones</td>
+<td>Lista</td>
+<td>Lista de inscripciones realizadas</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-10-recepción-automática-de-cvs-por-correo-electrónico"><strong>RF-10: Recepción Automática de CVs por Correo Electrónico</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Administrador.</li>
+<li><strong>Descripción:</strong> Permitir recibir CVs enviados por correo electrónico y clasificarlos según su contenido.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>correo_remitente</td>
+<td>Email</td>
+<td>Dirección de correo del remitente</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>archivo_cv</td>
+<td>Archivo</td>
+<td>CV adjunto recibido por correo</td>
+<td>Sí</td>
+<td>.pdf, .docx, .txt</td>
+</tr>
+<tr>
+<td>fecha_recepcion</td>
+<td>Fecha</td>
+<td>Fecha en que se recibió el CV</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>estado_validacion</td>
+<td>Booleano</td>
+<td>Indica si el CV ha sido validado</td>
+<td>Sí</td>
+<td>true, false</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-11-generar-lista-de-candidatos-para-una-oferta"><strong>RF-11: Generar Lista de Candidatos para una Oferta</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Reclutador.</li>
+<li><strong>Descripción:</strong> Generar una lista de los mejores candidatos inscritos en una oferta según los criterios de la misma.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_oferta</td>
+<td>Entero</td>
+<td>Identificador único de la oferta</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>candidatos_filtrados</td>
+<td>Lista</td>
+<td>Lista de candidatos que cumplen los criterios</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>algoritmo_matching</td>
+<td>Texto</td>
+<td>Algoritmo utilizado para el matching</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>fecha_generacion</td>
+<td>Fecha</td>
+<td>Fecha en que se generó la lista</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-12-métricas-por-reclutador"><strong>RF-12: Métricas por Reclutador</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Administrador.</li>
+<li><strong>Descripción:</strong> Generar reportes sobre las métricas de gestión de candidatos por reclutadores.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_reclutador</td>
+<td>Entero</td>
+<td>Identificador único del reclutador</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>total_candidatos</td>
+<td>Entero</td>
+<td>Número total de candidatos gestionados</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>total_ofertas</td>
+<td>Entero</td>
+<td>Número total de ofertas gestionadas</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>fecha_reporte</td>
+<td>Fecha</td>
+<td>Fecha en que se generó el reporte</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-13-chatbot-interactivo"><strong>RF-13: Chatbot Interactivo</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Candidato, Reclutador.</li>
+<li><strong>Descripción:</strong> Responder preguntas frecuentes y guiar a los usuarios en las acciones disponibles dentro del sistema.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>consulta</td>
+<td>Texto</td>
+<td>Pregunta realizada por el usuario</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>respuesta</td>
+<td>Texto</td>
+<td>Respuesta proporcionada por el sistema</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-14-gestión-de-habilidades"><strong>RF-14: Gestión de Habilidades</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Administrador, Reclutador.</li>
+<li><strong>Descripción:</strong> Mantener una base de datos de habilidades utilizadas tanto por candidatos como por ofertas.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_habilidad</td>
+<td>Entero</td>
+<td>Identificador único de la habilidad</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>nombre_habilidad</td>
+<td>Texto</td>
+<td>Nombre de la habilidad</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="rf-15-análisis-de-sesgos"><strong>RF-15: Análisis de Sesgos</strong></h3>
+<ul>
+<li><strong>Actor(es) Relacionado(s):</strong> Administrador.</li>
+<li><strong>Descripción:</strong> Detectar posibles sesgos en los procesos de selección y generar reportes.</li>
+<li><strong>Atributos Relevantes:</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Obligatorio</th>
+<th>Valores Permitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sesgos_detectados</td>
+<td>JSON</td>
+<td>Detalles de sesgos detectados</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>fecha_reporte</td>
+<td>Fecha</td>
+<td>Fecha en que se generó el análisis</td>
+<td>Sí</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table><pre><code></code></pre>
+</div>
+</body>
+
+</html>

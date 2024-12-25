@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>historias_usuario</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="historias-de-usuario-del-proyecto-chatbot-de-análisis-de-currículum-vitae">Historias de Usuario del Proyecto: Chatbot de Análisis de Currículum Vitae</h1>
+<h2 id="introducción">Introducción</h2>
+<p>Este documento recoge las historias de usuario del proyecto “Chatbot de Análisis de Currículum Vitae” siguiendo las mejores prácticas de metodologías ágiles. Las historias de usuario describen las funcionalidades que el sistema debe proporcionar desde la perspectiva de los usuarios involucrados.</p>
+<hr>
+<h2 id="formato-de-las-historias-de-usuario">Formato de las Historias de Usuario</h2>
+<p>Cada historia de usuario está escrita en el siguiente formato:</p>
+<ul>
+<li><strong>ID de la Historia de Usuario:</strong> [HU-XX]</li>
+<li><strong>Descripción:</strong> “Como [rol], quiero [funcionalidad] para [beneficio/objetivo].”</li>
+<li><strong>Criterios de Aceptación:</strong> Condiciones específicas que deben cumplirse para considerar que la historia está completa.</li>
+<li><strong>Prioridad:</strong> Alta, Media, Baja (según la importancia para el sistema).</li>
+<li><strong>Esfuerzo Estimado:</strong> (en puntos o unidades de tiempo).</li>
+</ul>
+<hr>
+<h2 id="historias-de-usuario">Historias de Usuario</h2>
+<h3 id="hu-01-subir-curriculum-vitae-cv"><strong>HU-01: Subir Curriculum Vitae (CV)</strong></h3>
+<ul>
+<li><strong>Descripción:</strong> Como candidato, quiero subir mi CV en formatos PDF, DOCX o TXT para que el sistema analice y almacene mis datos.</li>
+<li><strong>Criterios de Aceptación:</strong>
+<ol>
+<li>El sistema debe aceptar archivos en los formatos permitidos.</li>
+<li>El sistema debe validar que el archivo contiene información relevante de un CV (basado en palabras clave).</li>
+<li>Si el archivo no es un CV, se debe mostrar un mensaje de error y no almacenar el archivo.</li>
+<li>Una vez aceptado, el sistema extrae los datos y los almacena en la base de datos.</li>
+</ol>
+</li>
+<li><strong>Prioridad:</strong> Alta</li>
+<li><strong>Esfuerzo Estimado:</strong> 8 puntos</li>
+</ul>
+<hr>
+<h3 id="hu-02-validación-de-datos-extraídos"><strong>HU-02: Validación de Datos Extraídos</strong></h3>
+<ul>
+<li><strong>Descripción:</strong> Como candidato, quiero revisar los datos extraídos de mi CV para confirmar que sean correctos antes de guardarlos en la base de datos.</li>
+<li><strong>Criterios de Aceptación:</strong>
+<ol>
+<li>El sistema debe presentar los datos extraídos en un formulario editable.</li>
+<li>El candidato puede modificar cualquier campo incorrecto.</li>
+<li>El sistema solo guardará los datos si el candidato los confirma.</li>
+<li>Los datos no confirmados deben eliminarse automáticamente después de 24 horas.</li>
+</ol>
+</li>
+<li><strong>Prioridad:</strong> Alta</li>
+<li><strong>Esfuerzo Estimado:</strong> 5 puntos</li>
+</ul>
+<hr>
+<h3 id="hu-03-consultar-base-de-datos-de-candidatos"><strong>HU-03: Consultar Base de Datos de Candidatos</strong></h3>
+<ul>
+<li><strong>Descripción:</strong> Como reclutador, quiero buscar candidatos en la base de datos según criterios como experiencia, localidad, y habilidades para identificar los mejores perfiles para una oferta laboral.</li>
+<li><strong>Criterios de Aceptación:</strong>
+<ol>
+<li>El sistema debe permitir búsquedas por filtros: localidad, experiencia, habilidades, y salario deseado.</li>
+<li>Los resultados deben mostrarse ordenados por relevancia.</li>
+<li>El sistema debe resolver empates entre candidatos usando un algoritmo de machine learning sin sesgos.</li>
+<li>La búsqueda debe completarse en menos de 5 segundos.</li>
+</ol>
+</li>
+<li><strong>Prioridad:</strong> Alta</li>
+<li><strong>Esfuerzo Estimado:</strong> 13 puntos</li>
+</ul>
+<hr>
+<h3 id="hu-04-generar-informe-de-candidatos"><strong>HU-04: Generar Informe de Candidatos</strong></h3>
+<ul>
+<li><strong>Descripción:</strong> Como reclutador, quiero generar un informe en PDF con los datos de los candidatos seleccionados para compartirlos con la empresa contratante.</li>
+<li><strong>Criterios de Aceptación:</strong>
+<ol>
+<li>El sistema debe permitir seleccionar uno o más candidatos.</li>
+<li>El informe debe incluir información clave: nombre, experiencia, habilidades, y contacto.</li>
+<li>El informe debe ser exportado en un formato legible y profesional (PDF).</li>
+<li>El archivo generado debe estar disponible para descarga inmediata.</li>
+</ol>
+</li>
+<li><strong>Prioridad:</strong> Media</li>
+<li><strong>Esfuerzo Estimado:</strong> 8 puntos</li>
+</ul>
+<hr>
+<h3 id="hu-05-registro-de-reclutadores"><strong>HU-05: Registro de Reclutadores</strong></h3>
+<ul>
+<li><strong>Descripción:</strong> Como administrador, quiero que los reclutadores se registren en la plataforma para garantizar el acceso seguro a la base de datos de candidatos.</li>
+<li><strong>Criterios de Aceptación:</strong>
+<ol>
+<li>El sistema debe requerir un formulario de registro con datos como nombre, correo, y empresa.</li>
+<li>Los reclutadores deben ser aprobados manualmente por un administrador.</li>
+<li>El sistema debe enviar un correo de confirmación tras la aprobación.</li>
+<li>Los reclutadores deben usar credenciales para acceder al sistema.</li>
+</ol>
+</li>
+<li><strong>Prioridad:</strong> Alta</li>
+<li><strong>Esfuerzo Estimado:</strong> 8 puntos</li>
+</ul>
+<hr>
+<h3 id="hu-06-publicar-ofertas-de-trabajo"><strong>HU-06: Publicar Ofertas de Trabajo</strong></h3>
+<ul>
+<li><strong>Descripción:</strong> Como reclutador, quiero publicar ofertas de trabajo vinculadas a habilidades específicas para atraer a los candidatos más relevantes.</li>
+<li><strong>Criterios de Aceptación:</strong>
+<ol>
+<li>El formulario de publicación debe incluir: descripción del puesto, habilidades requeridas, experiencia deseada, tipo de jornada, y salario.</li>
+<li>Las ofertas deben aparecer en un panel visible para los candidatos.</li>
+<li>Los candidatos deben recibir recomendaciones automáticas si cumplen los criterios.</li>
+</ol>
+</li>
+<li><strong>Prioridad:</strong> Media</li>
+<li><strong>Esfuerzo Estimado:</strong> 10 puntos</li>
+</ul>
+<hr>
+<h3 id="hu-07-seguridad-y-privacidad-de-datos"><strong>HU-07: Seguridad y Privacidad de Datos</strong></h3>
+<ul>
+<li><strong>Descripción:</strong> Como administrador, quiero garantizar que los datos de los candidatos estén protegidos para cumplir con las normativas de privacidad.</li>
+<li><strong>Criterios de Aceptación:</strong>
+<ol>
+<li>Los datos personales deben estar cifrados en la base de datos.</li>
+<li>Solo los usuarios autorizados deben acceder a los datos.</li>
+<li>El sistema debe cumplir con la normativa GDPR.</li>
+</ol>
+</li>
+<li><strong>Prioridad:</strong> Alta</li>
+<li><strong>Esfuerzo Estimado:</strong> 8 puntos</li>
+</ul>
+<hr>
+<blockquote>
+<p>Escrito por <a href="https://www.erikaalvares.es/">Erika Alvares</a>.</p>
+</blockquote>
+</div>
+</body>
+
+</html>
